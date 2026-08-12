@@ -1,0 +1,334 @@
+/* Colour palette: best-effort match to raleighinternational.org (deep expedition green
+   header + warm burnt-orange accent). I couldn't pull exact hex codes from the live site
+   (no CSS/browser access from here) - send the real values any time and I'll swap these in. */
+:root {
+  --green-dark: #12312a;
+  --green: #1f5045;
+  --orange: #e0631f;
+  --orange-dark: #c14f14;
+  --cream: #f6f4ee;
+  --ink: #1c2b2a;
+  --border: #dcd6c9;
+  --white: #ffffff;
+
+  --essential: #b8291f;
+  --essential-bg: #fbeceb;
+  --recommended: #1f5045;
+  --recommended-bg: #eaf2ef;
+  --optional: #9c6a12;
+  --optional-bg: #faf1de;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.site-header {
+  background: var(--green-dark);
+  color: var(--white);
+  padding: 28px 20px;
+}
+.header-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.logo {
+  height: 48px;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+}
+.header-text h1 {
+  margin: 0 0 4px 0;
+  font-size: 1.6rem;
+}
+.header-text p {
+  margin: 0;
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+
+.filters {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px 24px;
+  margin-bottom: 10px;
+}
+.filter-group { margin-bottom: 18px; }
+.filter-group:last-child { margin-bottom: 0; }
+.filter-group h2 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--green-dark);
+  margin: 0 0 10px 0;
+}
+.option-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.filter-note {
+  margin: 8px 0 0 0;
+  font-size: 0.78rem;
+  color: #8a8a7c;
+  font-style: italic;
+}
+.howto-note {
+  max-width: 1000px;
+  margin: 0 auto 18px;
+  padding: 10px 16px;
+  background: #eaf2ef;
+  border: 1px solid #cfe0da;
+  border-radius: 8px;
+  color: var(--green-dark);
+  font-size: 0.88rem;
+  text-align: center;
+}
+.option-btn {
+  border: 2px solid var(--border);
+  background: var(--white);
+  color: var(--ink);
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+.option-btn:hover {
+  border-color: var(--green);
+}
+.option-btn.active {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--white);
+}
+
+.results-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.summary {
+  font-size: 0.95rem;
+  color: var(--green-dark);
+  font-weight: 600;
+}
+.toolbar-actions { display: flex; gap: 10px; }
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--orange);
+  color: var(--white);
+}
+.btn-primary:hover { background: var(--orange-dark); }
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--green-dark);
+}
+.btn-ghost:hover { border-color: var(--green); }
+
+.empty-state {
+  text-align: center;
+  color: #8a8a7c;
+  padding: 40px 20px;
+  font-size: 1.05rem;
+}
+
+.category-block {
+  margin-bottom: 26px;
+  border-left: 6px solid transparent;
+  padding-left: 14px;
+}
+.cat-essential { border-left-color: var(--essential); }
+.cat-recommended { border-left-color: var(--recommended); }
+.cat-optional { border-left-color: var(--optional); }
+
+.category-heading {
+  margin-bottom: 10px;
+}
+.category-heading h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+.cat-essential .category-heading h3 { color: var(--essential); background: var(--essential-bg); }
+.cat-recommended .category-heading h3 { color: var(--recommended); background: var(--recommended-bg); }
+.cat-optional .category-heading h3 { color: var(--optional); background: var(--optional-bg); }
+
+.subcategory {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.cat-essential .subcategory { border-top: 3px solid var(--essential); }
+.cat-recommended .subcategory { border-top: 3px solid var(--recommended); }
+.cat-optional .subcategory { border-top: 3px solid var(--optional); }
+
+.subcategory h4 {
+  margin: 0;
+  padding: 10px 16px;
+  background: #f0ece1;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--green-dark);
+}
+.item-row {
+  display: grid;
+  grid-template-columns: 28px 1fr 150px 90px;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border-top: 1px solid #ece7da;
+}
+.item-row:first-of-type { border-top: none; }
+.item-row .name {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dotted #9a9a86;
+  display: inline-block;
+}
+.item-row .qty {
+  display: flex;
+  justify-content: flex-end;
+}
+.item-row .qty-value {
+  color: var(--green-dark);
+  font-size: 0.92rem;
+  font-weight: 700;
+  background: #eef2ef;
+  border: 1px solid #d7e2dc;
+  border-radius: 6px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+.item-row .cyclepill {
+  font-size: 0.72rem;
+  background: #eee7d6;
+  color: #7a6a3a;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-align: center;
+  white-space: nowrap;
+}
+.item-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+}
+
+.tooltip {
+  position: fixed;
+  max-width: 320px;
+  background: var(--green-dark);
+  color: var(--white);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  z-index: 999;
+  pointer-events: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* Coarse pointers (touch) and small screens: pin the tooltip to the bottom of the
+   viewport instead of trying to follow a cursor that doesn't exist, so it can
+   never render off-screen. */
+@media (pointer: coarse), (max-width: 640px) {
+  .tooltip {
+    left: 12px !important;
+    right: 12px;
+    bottom: 12px;
+    top: auto !important;
+    max-width: none;
+    width: auto;
+  }
+  .item-row {
+    grid-template-columns: 24px 1fr auto;
+    row-gap: 4px;
+  }
+  .item-row .cyclepill { display: none; }
+}
+
+.site-footer {
+  background: var(--green-dark);
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85rem;
+}
+.site-footer a { color: var(--orange); }
+
+.print-only { display: none; }
+
+@media print {
+  .site-header, .filters, .howto-note, .results-toolbar, .site-footer, .empty-state, .tooltip { display: none !important; }
+  .results { display: none !important; }
+  .print-only {
+    display: block;
+  }
+  body { background: #fff; color: #000; }
+  .print-header {
+    border-bottom: 3px solid #12312a;
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+  }
+  .print-header h1 { margin: 0 0 4px 0; font-size: 1.4rem; }
+  .print-header p { margin: 0; font-size: 0.9rem; }
+  .print-category h2 {
+    font-size: 1rem;
+    margin: 18px 0 6px;
+    border-bottom: 1px solid #999;
+    padding-bottom: 4px;
+  }
+  .print-sub h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin: 10px 0 4px;
+    color: #333;
+  }
+  table.print-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+    font-size: 0.82rem;
+  }
+  table.print-table th, table.print-table td {
+    border: 1px solid #999;
+    padding: 4px 6px;
+    text-align: left;
+  }
+  table.print-table th { background: #eee; }
+  .box { display: inline-block; width: 12px; height: 12px; border: 1px solid #333; }
+}
