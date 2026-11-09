@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raleigh International | Kit List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="wordmark">RALEIGH<span>INTERNATIONAL</span></div>
+    <h1><em>Kit</em> List</h1>
+    <p>Select your destination (and, where relevant, Expedition length and Cycle) to see your personal kit list.</p>
+  </div>
+</header>
+<main class="container">
+  <section class="filters" id="filters">
+    <div class="filter-group">
+      <h2><span class="step">1</span> Destination</h2>
+      <div class="option-row" id="country-options"></div>
+    </div>
+    <div class="filter-group" id="length-group" hidden>
+      <h2><span class="step">2</span> Expedition length</h2>
+      <div class="option-row" id="length-options"></div>
+      <p class="filter-note new-lengths" id="new-lengths-note" hidden><span class="tag-new">NEW</span> 8 and 4 week Expeditions run from Cycle 2 2027 onwards. The 10, 7, 5 and 4 week lengths only run in Cycle 1 2027.</p>
+      <p class="filter-note" id="length-filter-note" hidden>The kit list for this destination is the same for every Expedition length.</p>
+    </div>
+    <div class="filter-group" id="cycle-group" hidden>
+      <h2><span class="step">3</span> Cycle</h2>
+      <div id="cycle-options"></div>
+    </div>
+  </section>
+  <p class="extend-note" id="extend-note" hidden></p>
+  <p class="howto-note" id="howto-note" hidden>Tip: hover over (or tap, on mobile) any item's name below to see why you need it and how much to bring.</p>
+  <section class="results-toolbar" id="results-toolbar" hidden>
+    <div class="summary" id="results-summary"></div>
+    <div class="toolbar-actions">
+      <button id="reset-checks-btn" class="btn btn-ghost" type="button">Reset ticks</button>
+      <button id="copy-btn" class="btn btn-ghost" type="button">Copy list</button>
+      <button id="print-btn" class="btn btn-primary" type="button">Print / Save as PDF</button>
+    </div>
+  </section>
+  <section class="results" id="results" hidden></section>
+  <p class="empty-state" id="empty-state">Choose a destination above to build your kit list.</p>
+</main>
+<div class="tooltip" id="tooltip" hidden></div>
+<div id="toast"></div>
+<footer class="site-footer">
+  <p>This checklist is maintained by the Raleigh International Expedition Team. It cannot be edited on this page.
+  If anything looks wrong or out of date, email <a href="mailto:info@raleighinternational.org">info@raleighinternational.org</a> and we'll update it.</p>
+</footer>
+<div id="print-area" class="print-only"></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
